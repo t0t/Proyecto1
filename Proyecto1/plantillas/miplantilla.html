@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Django</title>
+</head>
+<body>
+    {% include "./comunes/barra.html %}
+
+    <h1 style="background-color: blanchedalmond;">
+        Hola,
+        {% if nombre_persona == "Sergio" %}
+            {{ nombre_persona }} {{ apellido_persona }}, estamos en la Vista Home (Saludo) usando una plantilla
+        {% else %}
+            tu nombre no es Sergio
+        {% endif %}
+    </h1>
+         
+    <h1>La fecha es: {{ momento_actual.date }}</h1>
+    <h1>La hora es: {{ momento_actual.time }}</h1>
+    <input type="email" id="email" name="email">
+    <section>
+        <h3>Temas del curso:</h3>
+        <ul>
+            {% if temas %}
+                {% for t in temas %}
+                    <li>{{ t }}</li>
+                {% endfor %}
+            {% else %}
+                <p>no hay temas</p>
+            {% endif %}
+        </ul>
+    </section>
+    {% include "./comunes/footer.html %}
+</body>
+</html>
